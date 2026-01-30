@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAZLOUM Logistics</title>
+
+  <!-- ===== Fonts ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- ===== Icons ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <!-- ===== Main CSS ===== -->
+  <style>
+    /* ===== Variables & Global Styles ===== */
+    :root {
+      --navy-dark: #10163a;
+      --navy-mid: #1a2370;
+      --orange: #ff8a33;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--navy-dark);
+      color: var(--white);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-bottom: 140px;
+      background: linear-gradient(to bottom, rgba(16,22,58,0.50), rgba(0,3,26,0.70)),
+                  url('image.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* ===== Menu / Navbar ===== */
+    .menu-toggle {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      font-size: 2rem;
+      color: var(--orange);
+      background: rgba(20, 30, 70, 0.8);
+      border: 1px solid rgba(255, 138, 51, 0.3);
+      border-radius: 12px;
+      padding: 6px 12px;
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      background: rgba(255, 138, 51, 0.1);
+      transform: scale(1.1);
+    }
+
+    .menu {
+      position: absolute;
+      top: 75px;
+      right: 25px;
+      background: rgba(16, 22, 58, 0.95);
+      border: 1px solid rgba(255, 138, 51, 0.2);
+      border-radius: 12px;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      animation: fadeIn 0.3s ease;
+      z-index: 1000;
+    }
+
+    .menu a {
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 20px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .menu a:hover {
+      background: rgba(255, 138, 51, 0.15);
+      color: var(--orange);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Hero Content ===== */
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      padding: 40px 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 5px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 25px rgba(255,255,255,0.1);
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .hero-content h1 span {
+      color: var(--orange);
+      text-shadow: 0 0 25px rgba(255,138,51,0.6);
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
+      to { text-shadow: 0 0 25px rgba(255,138,51,0.7); }
+    }
+
+    /* ===== Services Cards ===== */
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 35px;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, #1a2370, #10163a);
+      border: 1px solid rgba(255, 138, 51, 0.25);
+      border-radius: 20px;
+      width: 230px;
+      padding: 30px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 138, 51, 0.3);
+      background: linear-gradient(145deg, #22308a, #121a45);
+    }
+
+    .service-card .icon {
+      background: radial-gradient(circle, var(--orange), #c96a20);
+      color: #fff;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 15px auto;
+      box-shadow: 0 0 15px rgba(255, 138, 51, 0.6);
+    }
+
+    .service-card .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--orange);
+    }
+
+    .service-card .subtitle {
+      font-size: 1.1rem;
+      color: #eee;
+    }
+
+    /* ===== Fixed WhatsApp & Contact ===== */
+    .whatsapp-fixed {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      font-weight: bold;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      font-size: 1.1rem;
+    }
+    .whatsapp-fixed i { font-size: 1.2rem; }
+    .whatsapp-fixed:hover { transform: scale(1.05); }
+
+    .contact-fixed {
+      position: relative;
+      margin: 40px auto 20px;
+      width: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: #eee;
+      font-size: 1.05rem;
+      border: 1px solid rgba(255, 138, 51, 0.25);
+      background: rgba(20, 30, 70, 0.9);
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    }
+    .contact-fixed a { color: var(--orange); text-decoration: none; }
+    .contact-fixed a:hover { text-decoration: underline; }
+    .contact-item span { color: var(--orange); }
+
+    /* ===== Modals ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,5,15,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-box {
+      background: linear-gradient(160deg, #10163a 60%, #1a2370 100%);
+      border: 1px solid rgba(255, 138, 51, 0.4);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    .modal-box h2 { font-size: 2rem; color: var(--orange); margin-bottom: 20px; }
+    .modal-box p { font-size: 1.15rem; line-height: 1.8; }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      width: 80%;
+      max-width: 280px;
+      text-align: center;
+      font-size: 1.15rem;
+    }
+
+    .contact-links a.call {
+      background: rgba(255, 138, 51, 0.1);
+      border: 1px solid var(--orange);
+      color: var(--orange);
+    }
+    .contact-links a.call:hover { background: var(--orange); color: #fff; transform: scale(1.05); }
+
+    .contact-links a.whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .contact-links a.whatsapp:hover { transform: scale(1.05); }
+
+    .close-btn {
+      margin-top: 25px;
+      background: var(--orange);
+      border: none;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+    .close-btn:hover { background: #ff9b55; transform: scale(1.05); }
+
+    /* ===== Media Queries ===== */
+    @media (max-width: 768px) {
+      .menu-toggle { top: 50px; right: 20px; }
+
+      .hero-content h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        letter-spacing: 3px;
+        line-height: 1.2;
+      }
+
+      .contact-fixed { margin: 30px 20px 80px; }
+      .contact-fixed .contact-item { justify-content: center; font-size: 1rem; }
+      .whatsapp-fixed { bottom: 15px; left: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+
+    <div class="menu" id="dropdownMenu">
+      <a href="#" onclick="showModal('aboutModal')">من نحن</a>
+      <a href="#" onclick="showModal('servicesModal')">خدماتنا</a>
+      <a href="#" onclick="showModal('contactModal')">تواصل معنا</a>
+    </div>
+
+    <div class="hero-content">
+      <h1>MAZ<span>L</span>OUM</h1>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon"><i class="fa-solid fa-ship"></i></div>
+          <div class="title">شحن دولي</div>
+          <div class="subtitle">International Shipping</div>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fa-solid fa-passport"></i></div>
+          <div class="title">تخليص جمركي</div>
+          <div class="subtitle">Customs Clearance</div>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fa-solid fa-truck"></i></div>
+          <div class="title">خدمات لوجستية</div>
+          <div class="subtitle">Logistics Services</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://wa.me/963933442307" class="whatsapp-fixed" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> واتساب
+    </a>
+  </section>
+
+  <!-- ===== Contact Fixed ===== -->
+  <div class="contact-fixed">
+    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> اللاذقية شارع بورسعيد قرب ساحة العلبي</div>
+    <div class="contact-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:hanimazloum67@gmail.com">hanimazloum67@gmail.com</a></div>
+  </div>
+
+  <!-- ===== Modals ===== -->
+  <div class="modal" id="aboutModal">
+    <div class="modal-box">
+      <h2>من نحن</h2>
+      <p>
+        Eng. Hani M. E. Mazloum<br>CEO & Founder<br><br>
+        شركة MAZLOUM متخصصة في الشحن الدولي، التخليص الجمركي والخدمات اللوجستية المتكاملة،
+        بخبرة تمتد لسنوات من التميز والموثوقية.
+      </p>
+      <button class="close-btn" onclick="closeModal('aboutModal')">إغلاق</button>
+    </div>
+  </div>
+
+  <div class="modal" id="servicesModal">
+    <div class="modal-box">
+      <h2>خدماتنا</h2>
+      <p>
+        وكيل شحن متكامل الخدمات يقدم الشحن البحري والبري والجوي وخدمات تأجير السفن العالمية.<br><br>
+        خدمات الشحن من أرض المعمل إلى مستودع التاجر، التحميل والتفريغ، التوصيل، التخليص الجمركي وتصديق الوثائق، وجميع الخدمات اللوجستية
+        <br>شحن من ارض المعمل  EXW من الصين - اوروبا - مصر<br>
+        واصل ميناء : اللاذقية- العقبة - بيروت - مرسين
+        <br> - خدمات شحن بري من ارض المعمل بتركيا واصل المستودع<br>
+        - خدمات تخليص جمركي من موانئ
+        العقبة- بيروت - مرسين - اسكندرون
+        واصل مستودعاتكم
+      </p>
+      <button class="close-btn" onclick="closeModal('servicesModal')">إغلاق</button>
+    </div>
+  </div>
+
+  <div class="modal" id="contactModal">
+    <div class="modal-box">
+      <h2>تواصل معنا</h2>
+      <div class="contact-links">
+        <a href="tel:00963412595119" class="call"><i class="fa-solid fa-phone"></i> 00963412595119</a>
+        <a href="tel:00963418825521" class="call"><i class="fa-solid fa-phone"></i> 00963418825521</a>
+        <a href="https://wa.me/963995876014" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+      </div>
+      <button class="close-btn" onclick="closeModal('contactModal')">إغلاق</button>
+    </div>
+  </div>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+
+    function showModal(id) {
+      document.getElementById(id).style.display = "flex";
+      document.getElementById("dropdownMenu").style.display = "none";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    document.addEventListener("click", (e) => {
+      const menu = document.getElementById("dropdownMenu");
+      const toggle = document.querySelector(".menu-toggle");
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) menu.style.display = "none";
+    });
+  </script>
+</body>
+</html>
